@@ -18,7 +18,7 @@ def connect(warehouse_path: Path) -> duckdb.DuckDBPyConnection:
 
 def build_silver(con: duckdb.DuckDBPyConnection, bronze_dir: Path) -> None:
     logger.info("Building silver_trips")
-    parquet_glob = str(bronze_dir / "**" / "*.parquet")
+    parquet_glob = str(bronze_dir / "*" / "*.parquet")
 
     con.execute(
         """
