@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.venv*/
+.egg-info/
+.pytest_cache/
+
+# Data outputs
+/data/
+/data-*/
+*.duckdb
+*.parquet
+*.csv
+*.json
+
+# dbt
+/dbt/target/
+/dbt/logs/
+/dbt/.user.yml
+
+# OS
+.DS_Store
