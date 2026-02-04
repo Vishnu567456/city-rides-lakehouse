@@ -1,5 +1,7 @@
 # City Rides Lakehouse
 
+[![CI](https://github.com/Vishnu567456/city-rides-lakehouse/actions/workflows/ci.yml/badge.svg)](https://github.com/Vishnu567456/city-rides-lakehouse/actions/workflows/ci.yml)
+
 A portfolio-grade, end-to-end data engineering project that simulates a ride-hailing platform and builds a lakehouse-style pipeline from raw events to analytics-ready marts. It showcases ingestion, data modeling, quality checks, and orchestration with clear documentation and reproducible runs.
 
 **Why it stands out**
@@ -42,6 +44,29 @@ Run the Streamlit app to explore hourly metrics:
 streamlit run app.py
 ```
 Note: run the pipeline first so `data/warehouse.duckdb` exists.
+
+## Screenshots
+Add a screenshot after running the dashboard:
+- Save as `docs/dashboard.png`
+- Embed it below
+
+![Dashboard Screenshot](docs/dashboard.png)
+
+## Results (Sample Queries)
+Run these in DuckDB to validate outputs:
+```sql
+SELECT COUNT(*) AS trips FROM silver_trips;
+SELECT COUNT(*) AS hourly_rows FROM fct_trip_hourly;
+SELECT * FROM fct_trip_hourly ORDER BY pickup_date, pickup_hour LIMIT 10;
+```
+Expected columns in `fct_trip_hourly`:
+- `pickup_date`
+- `pickup_hour`
+- `zone_id`
+- `trip_count`
+- `avg_trip_distance`
+- `avg_fare_amount`
+- `total_revenue`
 
 ## dbt (Optional)
 Use dbt to build models on top of the DuckDB warehouse.
