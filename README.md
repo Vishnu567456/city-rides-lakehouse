@@ -36,6 +36,22 @@ python -m src.pipeline.run_pipeline \
 - Warehouse: `data/warehouse.duckdb`
 - Quality report: `data/quality_report.json`
 
+## Dashboard
+Run the Streamlit app to explore hourly metrics:
+```bash
+streamlit run app.py
+```
+Note: run the pipeline first so `data/warehouse.duckdb` exists.
+
+## dbt (Optional)
+Use dbt to build models on top of the DuckDB warehouse.
+```bash
+cp dbt/profiles.yml.example ~/.dbt/profiles.yml
+cd dbt
+dbt debug
+dbt build
+```
+
 ## Models
 - `silver_trips`
 - `dim_zones`
@@ -56,8 +72,9 @@ pytest -q
 - `src/pipeline/` Core pipeline code
 - `docs/architecture.md` System overview
 - `tests/` Data quality and transform tests
+ - `dbt/` dbt project (optional)
+ - `app.py` Streamlit dashboard
 
 ## Next Steps
 - Swap DuckDB for a cloud warehouse target
-- Add dbt models and CI
 - Plug in a real streaming source

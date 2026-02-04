@@ -11,5 +11,13 @@ prefect>=2.14
 # Data quality
 pandera>=0.18
 
+# Dashboard
+streamlit>=1.30
+altair>=5.0
+
+# dbt (optional)
+dbt-core>=1.7
+dbt-duckdb>=1.7
+
 # Dev
 pytest>=8.0
