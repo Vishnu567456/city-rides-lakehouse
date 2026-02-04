@@ -44,6 +44,7 @@ Run the Streamlit app to explore hourly metrics:
 streamlit run app.py
 ```
 Note: run the pipeline first so `data/warehouse.duckdb` exists.
+For cloud deployment steps, see `docs/deploy_streamlit.md`.
 
 ## Screenshots
 Add a screenshot after running the dashboard:
